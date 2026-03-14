@@ -4,8 +4,10 @@ import { Globe, Info, MousePointerClick, Terminal } from "lucide-react"
 import type { ReactNode } from "react"
 
 import { NetworkRequestsPanel } from "./network-requests-panel"
+import { ReproductionStepsList } from "./reproduction-steps-list"
 import { TimelineList } from "./timeline-list"
 import type {
+  DebuggerAction,
   DebuggerNetworkRequest,
   DebuggerTimelineEntry,
   DeviceInfo,
@@ -18,6 +20,10 @@ interface TimelineSidebarState {
   entries: DebuggerTimelineEntry[]
   selectedEntryId: string | null
   highlightedEntryIds: string[]
+}
+
+interface ActionsSidebarState extends TimelineSidebarState {
+  actions: DebuggerAction[]
 }
 
 interface NetworkSidebarState extends TimelineSidebarState {
@@ -35,7 +41,7 @@ interface BugReportSidebarProps {
   tabAction?: ReactNode
   onTabChange: (tab: SidebarTab) => void
   timeline: {
-    actions: TimelineSidebarState
+    actions: ActionsSidebarState
     console: TimelineSidebarState
   }
   network: NetworkSidebarState
@@ -128,11 +134,10 @@ export function BugReportSidebar({
         )}
 
         {activeTab === "actions" && (
-          <TimelineList
-            emptyMessage="No user actions captured."
+          <ReproductionStepsList
+            actions={timeline.actions.actions}
             entries={timeline.actions.entries}
             highlightedIds={timeline.actions.highlightedEntryIds}
-            icon={<MousePointerClick className="h-3 w-3" />}
             onSelect={onEntrySelect}
             selectedId={timeline.actions.selectedEntryId}
           />

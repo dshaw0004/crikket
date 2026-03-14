@@ -572,6 +572,7 @@ export function BugReportView({ id }: BugReportViewProps) {
     onTabChange: handleTabChange,
     timeline: {
       actions: {
+        actions: debuggerEvents.actions,
         entries: actionEntries,
         selectedEntryId: selectedEntryIds.action,
         highlightedEntryIds: highlightedActionEntryIds,
