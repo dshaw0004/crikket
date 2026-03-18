@@ -4,6 +4,7 @@ import {
   boolean,
   index,
   integer,
+  jsonb,
   pgTable,
   text,
   timestamp,
@@ -104,6 +105,7 @@ export const organization = pgTable(
     logo: text("logo"),
     createdAt: timestamp("created_at").notNull(),
     metadata: text("metadata"),
+    githubIntegration: jsonb("github_integration"),
   },
   (table) => [uniqueIndex("organization_slug_uidx").on(table.slug)]
 )

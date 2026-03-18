@@ -20,6 +20,7 @@ import {
   buildCaptureArtifactKey,
   buildDebuggerArtifactKey,
 } from "./artifact-storage"
+import { createGithubIssueForBugReport } from "./integrations/github"
 import type { PersistBugReportDebuggerDataResult } from "./debugger"
 import {
   assertCreateBugReportEntitlements,
@@ -396,9 +397,22 @@ export async function finalizeBugReportUpload(input: {
     })
   }
 
+  const shareUrl = `/s/${uploadSession.id}`
+
+  // Create GitHub issue in the background if integration is configured
+  await createGithubIssueForBugReport({
+    organizationId: uploadSession.organizationId,
+    bugReportId: uploadSession.id,
+    title: uploadSession.title || "Bug Report",
+    description: uploadSession.description,
+    priority: uploadSession.priority,
+    tags: uploadSession.tags,
+    shareUrl: `https://app.crikket.io${shareUrl}`, // Best effort share url mapping
+  })
+
   return {
     id: uploadSession.id,
-    shareUrl: `/s/${uploadSession.id}`,
+    shareUrl,
     warnings,
     debugger: debuggerPersistence,
   }

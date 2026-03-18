@@ -1,6 +1,5 @@
 {
   "lockfileVersion": 1,
-  "configVersion": 1,
   "workspaces": {
     "": {
       "name": "crikket",
@@ -99,7 +98,7 @@
     },
     "apps/web": {
       "name": "web",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "dependencies": {
         "@base-ui/react": "catalog:",
         "@crikket-io/capture": "workspace:*",
@@ -108,6 +107,7 @@
         "@crikket/env": "workspace:*",
         "@crikket/shared": "workspace:*",
         "@crikket/ui": "workspace:*",
+        "@hookform/resolvers": "^5.2.2",
         "@orpc/client": "catalog:",
         "@orpc/server": "catalog:",
         "@orpc/tanstack-query": "catalog:",
@@ -339,7 +339,7 @@
     },
     "sdks/capture": {
       "name": "@crikket-io/capture",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "dependencies": {
         "@crikket/capture-core": "workspace:*",
         "@crikket/shared": "workspace:*",
@@ -797,6 +797,8 @@
     "@fumadocs/ui": ["@fumadocs/ui@16.5.0", "", { "dependencies": { "next-themes": "^0.4.6", "postcss-selector-parser": "^7.1.1", "tailwind-merge": "^3.4.0" }, "peerDependencies": { "@types/react": "*", "fumadocs-core": "16.5.0", "next": "16.x.x", "react": "^19.2.0", "react-dom": "^19.2.0", "tailwindcss": "^4.0.0" }, "optionalPeers": ["@types/react", "next", "tailwindcss"] }, "sha512-64P3QqnN5SjjqsKLIoA/6Tgzrs05JthZSa4RxuTCmXMXkjKOV6m6x6hanQrDzX1M27xVIlwuDrxLBzA21t0CgQ=="],
 
     "@hono/node-server": ["@hono/node-server@1.19.9", "", { "peerDependencies": { "hono": "^4" } }, "sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw=="],
+
+    "@hookform/resolvers": ["@hookform/resolvers@5.2.2", "", { "dependencies": { "@standard-schema/utils": "^0.3.0" }, "peerDependencies": { "react-hook-form": "^7.55.0" } }, "sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA=="],
 
     "@img/colour": ["@img/colour@1.0.0", "", {}, "sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw=="],
 
