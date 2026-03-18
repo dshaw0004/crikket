@@ -10,12 +10,13 @@
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
+    "@crikket-io/capture": "workspace:*",
     "@crikket/api": "workspace:*",
     "@crikket/auth": "workspace:*",
-    "@crikket-io/capture": "workspace:*",
     "@crikket/env": "workspace:*",
-    "@crikket/ui": "workspace:*",
     "@crikket/shared": "workspace:*",
+    "@crikket/ui": "workspace:*",
+    "@hookform/resolvers": "^5.2.2",
     "@orpc/client": "catalog:",
     "@orpc/server": "catalog:",
     "@orpc/tanstack-query": "catalog:",
@@ -27,12 +28,12 @@
     "better-auth": "catalog:",
     "lucide-react": "catalog:",
     "next": "catalog:",
+    "nextjs-toploader": "catalog:",
+    "nuqs": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "zod": "catalog:",
     "sonner": "catalog:",
-    "nuqs": "catalog:",
-    "nextjs-toploader": "catalog:"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@crikket/config": "workspace:*",
